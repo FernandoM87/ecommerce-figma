@@ -8,7 +8,7 @@ import styles from '../../App.module.css';
 export default function MenuNav({ cart, setCart }) {
     return (
         <header className={styles.header}>
-            <h1 className={styles.pageTitle}>sneakers</h1>
+            <h1 className={styles.pagesTitle}>sneakers</h1>
             <Navbar />
             <Cart
                 setCart={setCart}
