@@ -6,21 +6,21 @@ import {
 import styles from './App.module.css'; 
 
 function App() {
-  const [cart, setCart] = React.useState([]);
+  const [shop, setShop] = React.useState([]);
 
-  const addToCart = (item, remove) => {
+  const addToCart = (object, remove) => {
     if (remove) { 
 
-      if (cart.length >= 1) {
+      if (shop.length >= 1) {
 
-        const newCart = cart.filter((cartItem, index) => index !== 0);
-        setCart(newCart);
+        const newCart = shop.filter((cartItem, index) => index !== 0);
+        setShop(newCart);
       }
 
       return; 
 
     } else {
-      setCart([...cart, item]);
+      setShop([...shop, object]);
     }
   }
 
@@ -28,13 +28,13 @@ function App() {
     <div className={styles.app}>
       
       <MenuNav
-        setCart = {addToCart}
-        cart={cart}
+        setShop = {addToCart}
+        shop={shop}
       />
       
       <Products 
-        setCar={addToCart}
-        cart={cart}
+        setShop={addToCart}
+        shop={shop}
 
       />
     </div>

@@ -2,7 +2,7 @@ import * as React from 'react'
 import styles from '../../App.module.css'; 
 import { CartItem } from '.././ComponentsIndex'
 
-export default function Cart({ cart, setCar }) {
+export default function Cart({ shop, setShop }) {
     const [cartShow, setCartShow] = React.useState(false);
 
     return (
@@ -13,12 +13,12 @@ export default function Cart({ cart, setCar }) {
         >
             <img src="./src/assets/images/shape-nav.svg" alt="Cart icon" styles={styles.cartIcon} />
             
-            {cart.length > 0 ? <span className={styles.cartNum}>{cart.length}</span> : null}
+            {shop.length > 0 ? <span className={styles.cartNum}>{shop.length}</span> : null}
             
             <CartItem
-                cartOpen={cartShow}
-                cart={cart}
-                setCar={setCar}
+                cartShow={cartShow}
+                shop={shop}
+                setShop={setShop}
             />
         </div>
     )

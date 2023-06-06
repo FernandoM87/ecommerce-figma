@@ -1,23 +1,23 @@
 import * as React from 'react';
 import styles from '../../App.module.css'; 
 
-export default function CartItem({ cart, cartOpen, setCart }) {
+export default function CartItem({ shop, setShop, cartShow }) {
     
     
-    if (cart.length > 0 && cartOpen) {
+    if (shop.length > 0 && cartShow) {
 
         const removeItem = () => {
-            setCart(undefined, true);
+            setShop(undefined, true);
         }
 
         let totalPrice = 0;
         let totalItems = 0;
         let imgUrl = [];
 
-        cart.forEach(item => {
-            totalPrice += item.price;
+        shop.forEach(object => {
+            totalPrice += object.price;
             totalItems++;
-            imgUrl.push(item.imgUrls[0]);
+            imgUrl.push(object.imgUrls[0]);
         });
         
         return (
@@ -26,10 +26,10 @@ export default function CartItem({ cart, cartOpen, setCart }) {
                 <h2 className={styles.cartHeader}>Cart</h2>
 
                 <div className={styles.cartWrapper}>
-                    <img className={styles.productImg} src={imgUrl[0]} alt={cart[0].alt} />
+                    <img className={styles.productImg} src={imgUrl[0]} alt={shop[0].alt} />
                     <div className={styles.cartPara}>
-                        <p>{cart[0].name}</p>
-                        <p>${cart[0].price} x {totalItems} <b className={styles.totalPrice}>${totalPrice}</b></p>
+                        <p>{shop[0].name}</p>
+                        <p>${shop[0].price} x {totalItems} <b className={styles.totalPrice}>${totalPrice}</b></p>
                     </div>
                     <img className={styles.trashbin} src="./src/assets/images/trashbin.svg" alt="Delete item" onClick={removeItem} />
                     <button>Checkout</button>
@@ -39,7 +39,7 @@ export default function CartItem({ cart, cartOpen, setCart }) {
         )
 
     }
-    else if (cartOpen) {
+    else if (cartShow) {
         return (
             <div className={styles.emptyCart}>
                 <h2 className={styles.cartHeader}>Cart</h2>

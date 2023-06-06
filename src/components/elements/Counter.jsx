@@ -1,19 +1,19 @@
 import * as React from 'react'
 import styles from '../../App.module.css'; 
 
-export default function Counter({ cart, setCart, item }) {
+export default function Counter({ shop, setShop, object }) {
 
     const removeItem = () => {
-        setCart(item, true);
+        setShop(object, true);
     }
     const addItem = () => { 
-        setCart(item, false);
+        setShop(object, false);
     }
 
     return (
         <div className={styles.counter}>
             <img className={styles.minus} src="./src/assets/images/minus.svg" onClick={removeItem} />
-            <span className={styles.numOfItems}>{cart.length}</span>
+            <span className={styles.numOfItems}>{shop.length}</span>
             <img className={styles.plus} src="./src/assets/images/plus.svg" onClick={addItem} />
         </div>
     )

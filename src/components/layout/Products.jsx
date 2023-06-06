@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Button, Counter, ImageSlider } from '../ComponentsIndex';
 import styles from '../../App.module.css';
 
-export default function Products({ setCart, cart }) {
+export default function Products({ setShop, shop }) {
 
     const sneakers = {
         name: "Fall Limited Edition Sneakers",
@@ -62,12 +62,14 @@ export default function Products({ setCart, cart }) {
                 
                 <div className={styles.buttonAndCounterWrapper}>
                     <Counter
-                        cart={cart}
-                        setCart={setCart}
+                        shop={shop}
+                        setShop={setShop}
+                        object={sneakers}
                     />
                     <Button
-                        setCart={setCart}
-                        item={sneakers}
+                        shop={shop}
+                        setShop={setShop}
+                        object={sneakers}
                     />
                 </div>
             </section>
